@@ -1,7 +1,6 @@
 ""### PLUGINS CONFIGURATION ###
 call plug#begin('~/.local/share/nvim/plugged')
 
-
 "## GENERAL SETTINGS ##
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -23,7 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-unimpaired'
 
 " Make comment insanely fast
 Plug 'chrisbra/vim-commentary'
@@ -38,10 +37,10 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 
 " Man pages
-Plug 'vim-utils/vim-man'
+" Plug 'paretje/nvim-man'
 
 " Titlecase
-"Plug 'christoomey/vim-titlecase'
+Plug 'christoomey/vim-titlecase'
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
@@ -65,6 +64,23 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 
+
+" Used for maximazing
+"Plug 'szw/vim-maximizer'
+
+
+" Emmet for css
+" Plug 'mattn/emmet-vim'
+
+" Markdown-runner
+Plug 'dbridges/vim-markdown-runner'
+
+" Custom Stuff
+Plug 'file://'.expand('~/.local/share/nvim/plugged/vim-basics')
+
+" Jupyter
+" Plug 'goerz/jupytext.vim'
+
 ""## END GENERAL SETTINGS ##
 
 
@@ -82,6 +98,7 @@ Plug 'plasticboy/vim-markdown'
 
 "# MATLAB #
 Plug 'yinflying/matlab-screen'
+" Plug 'daeyun/vim-matlab'
 
 "# LUA #
 Plug 'wsdjeg/vim-lua'

@@ -92,7 +92,7 @@ nmap <leader>ca  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>cac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>cqf  <Plug>(coc-fix-current)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -133,7 +133,7 @@ nnoremap <silent><nowait> <leader>clc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <leader>clo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <leader>cls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <leader>cls  :<C-u>CocList snippets<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <leader>cj  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -150,5 +150,5 @@ let g:coc_global_extensions = [
       \ 'coc-sh',
       \ 'coc-pyright',
       \ 'coc-snippets',
-      \ 'coc-pairs',
+      \ 'coc-perl',
       \ ]

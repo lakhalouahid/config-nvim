@@ -14,13 +14,15 @@ set title           " Title Setting
 set hidden          " Make a buffer becomes hidden when it is abandoned
 set scrolloff=8
 set signcolumn=auto " Left column for errors
-                    " set colorcolumn=80 " 80 red column
+" set colorcolumn=80 " 80 red column
 set cmdheight=1     " Cmd Height
 set shortmess+=c    " Don't give ins-completion-menu messages
 set noshowmode 
+set nohlsearch      " No hlsearch
 set completeopt=menuone,noinsert,noselect
 set exrc            " Read local vimrc config file
-set omnifunc=syntaxcomplete#Complete 
+"set nosecure
+"set omnifunc=syntaxcomplete#Complete 
 set updatetime=200
 set belloff=all     " Set off the bell sound
 syntax enable       " Enable synthax highlighting
@@ -59,12 +61,12 @@ set history=700                         " Set the history to 700 deep
 set undolevels=700                      " No more then 700 undolevels
 set noswapfile                          " No swap files :)
 set nobackup                            " No backups :)
-set undodir=~/.local/share/nvim/undodir " Define the undodir
 set undofile                            " Use a undofile for each opened file
+set undodir=~/.local/share/nvim/undodir " Define the undodir
 
 " Extra stuff
 set clipboard=unnamed                     " Use the plus register as the clipboard register
 set runtimepath+=~/.local/share/nvim/site " Runtime
 
-
+" Plugings
 source $HOME/.config/nvim/plugin/plugs.vim
