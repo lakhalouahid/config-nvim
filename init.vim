@@ -1,28 +1,29 @@
 "### NOEVIM INIT CONFIGURATION FILE ###
-
 "## Global Settings ##
 
 " Leader
 let mapleader = " "  " Define the leader character
+let maplocalleader = " "  " Define the leader character
 
 " Behavior
-set ruler           " Show the line and column number
+set ruler           " Show the line and columninit.vim number
 set nowrap          " Don't Wrap the lineBs
 set encoding=utf-8  " Encoding UTF-8
 set nocompatible    " No compatibel vith vi
 set title           " Title Setting
 set hidden          " Make a buffer becomes hidden when it is abandoned
-set scrolloff=8
-set signcolumn=auto " Left column for errors
+set scrolloff=0
+set signcolumn=no   " Left column for errors
 " set colorcolumn=80 " 80 red column
 set cmdheight=1     " Cmd Height
 set shortmess+=c    " Don't give ins-completion-menu messages
-set noshowmode 
+set noshowmode
 set nohlsearch      " No hlsearch
 set completeopt=menuone,noinsert,noselect
 set exrc            " Read local vimrc config file
+set nowrapscan
 "set nosecure
-"set omnifunc=syntaxcomplete#Complete 
+"set omnifunc=syntaxcomplete#Complete
 set updatetime=200
 set belloff=all     " Set off the bell sound
 syntax enable       " Enable synthax highlighting
@@ -45,6 +46,7 @@ set spelllang=en    " Make english as the default language for spelling
 set background=dark " Use my beautiful drak background theme
 
 " Themes
+set notermguicolors
 
 " Search
 set path=.** " Search from the current folder and down
@@ -52,6 +54,7 @@ set path=.** " Search from the current folder and down
 "set number " Show line number
 "set splitbelow " Make window splits open below current window
 "set splitright " Make window splits open right current window
+set numberwidth=1
 set relativenumber " Show relative line number
 set number         " Show absolute number
 set incsearch      " Show where the pattern, as it was typed so far, matches
@@ -66,7 +69,27 @@ set undodir=~/.local/share/nvim/undodir " Define the undodir
 
 " Extra stuff
 set clipboard=unnamed                     " Use the plus register as the clipboard register
-set runtimepath+=~/.local/share/nvim/site " Runtime
+set runtimepath+=~/.local/share/nvim/lua " Runtime
+
+" Vim provider
+let g:python3_host_prog = '/usr/bin/python3'
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+
+
+" Load bash aliases
+"let $ZSH_ENV='~/.config/zsh/.sh_aliases'
 
 " Plugings
-source $HOME/.config/nvim/plugin/plugs.vim
+source $HOME/.config/nvim/vim/plugs.vim
+source $HOME/.config/nvim/vim/mappings.vim
+source $HOME/.config/nvim/vim/configurations.vim
+
+" Colorscheme
+colorscheme gruvbox
+highlight extrawhitespace ctermbg=DarkMagenta guibg=blue
+
+lua << EOF
+ require('init')
+EOF
