@@ -65,11 +65,11 @@ set undolevels=700                      " No more then 700 undolevels
 set noswapfile                          " No swap files :)
 set nobackup                            " No backups :)
 set undofile                            " Use a undofile for each opened file
-set undodir=~/.local/share/nvim/undodir " Define the undodir
+set undodir=$HOME/.local/share/nvim/undodir " Define the undodir
 
 " Extra stuff
 set clipboard=unnamed                     " Use the plus register as the clipboard register
-set runtimepath+=~/.local/share/nvim/lua " Runtime
+set runtimepath+=$HOME/.local/share/nvim/lua  " Runtime
 
 " Vim provider
 let g:python3_host_prog = '/usr/bin/python3'
@@ -78,8 +78,6 @@ let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
 
 
-" Load bash aliases
-"let $ZSH_ENV='~/.config/zsh/.sh_aliases'
 
 " Plugings
 source $HOME/.config/nvim/vim/plugs.vim

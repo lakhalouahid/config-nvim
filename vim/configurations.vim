@@ -23,7 +23,6 @@ let g:UltiSnipsListSnippets="<c-l>"
 let g:netrw_browsex_viewer= "xdg-open"
 
 " VimTex
-
 let g:vimtex_view_method = 'zathura'
 
 " VimTeX uses latexmk as the default compiler backend. If you use it, which is
@@ -35,6 +34,7 @@ let g:vimtex_compiler_method = 'latexmk'
 let maplocalleader = " "
 
 
+" Vim-slime
 let g:slime_target = "tmux"
 
 let g:slime_python_ipython = 1

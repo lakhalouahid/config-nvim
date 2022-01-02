@@ -9,11 +9,10 @@ require('lsp/python-lsp')
 require('lsp/vim-lsp')
 
 
--- Snippets
-require('utils/cmp-snip')
+-- configuration language server
+require('config')
 -- telescope
-require('utils/tls')
-require('utils/iron')
+require('utils/telescope')
 
 -- Mappings
 local function buf_set_keymap(...) vim.api.nvim_set_keymap(...) end
@@ -29,12 +28,3 @@ buf_set_keymap('n', '<space>pV', '<cmd>lua require("utils/tls").grep_dotfiles()<
 buf_set_keymap('n', ']g', '<cmd>cnext<CR>', opts)
 buf_set_keymap('n', '[g', '<cmd>cprevious<CR>', opts)
 buf_set_keymap('n', '<space>nc', '<cmd>call Basics#Move2NextCell()<CR>', opts)
-
--- iron mapppings
--- buf_set_keymap('n', 'glr', '<Plug>(iron-send-motion)', opts)
--- buf_set_keymap('v', 'glv', '<Plug>(iron-visual-send)', opts)
--- buf_set_keymap('n', 'gl!', '<Plug>(iron-repeat-cmd)', opts)
--- buf_set_keymap('n', 'gli', '<Plug>(iron-interrupt)', opts)
--- buf_set_keymap('n', 'glq', '<Plug>(iron-exit)', opts)
--- buf_set_keymap('n', 'glc', '<Plug>(iron-clear)', opts)
--- buf_set_keymap('n', 'glf', ':IronFocus<CR>', opts)

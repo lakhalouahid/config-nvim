@@ -33,9 +33,9 @@ nnoremap <Leader>fi :set foldmethod=indent<CR>
 nnoremap <silent><C-w>N :vnew<Cr>
 nnoremap <leader>s :sp term://
 nnoremap <leader>v :vsp term://
-
 au! TermOpen * redraw!
 au! TermOpen * setlocal norelativenumber nonumber
+
 
 " Vim Fugitive https://github.com/tpope/vim-fugitive
 nnoremap <leader>gs :G<CR>
@@ -51,6 +51,7 @@ nmap ga <Plug>(EasyAlign)
 " Open vim commands such as nmap options in new tab
 command -nargs=1 Vcmd :tabnew|pu=execute('<args>')
 
+" Vimwiki
 au! FileType markdown,vimwiki.markdown :set filetype=markdown
 
 " Markdown-runner
@@ -67,46 +68,26 @@ nnoremap <leader>tp :set filetype=php<cr>
 nnoremap <leader>ty :set filetype=python<cr>
 nnoremap <leader>tm :set filetype=markdowm<cr>
 nnoremap <leader>tc :set filetype=c<cr>
-nnoremap <M-a> <C-W>
+nmap <M-s> <C-W>
 
 " White spaces
 au! InsertLeave * match extrawhitespace /\s\+$/
-
-" Iron
-nmap glr <Plug>(iron-send-motion)
-vmap glv <Plug>(iron-visual-send)
-nmap gll <Plug>(iron-repeat-cmd)
-nmap gli <Plug>(iron-interrupt)
-nmap glq <Plug>(iron-exit)
-nmap glc <Plug>(iron-send-motion)ic<space>nc<CR>
-nmap glf :IronFocus<CR>
 
 " Command-window
 cnoremap <A-s> <c-right>
 cnoremap <A-b> <c-left>
 
-" Documentation
-command -nargs=1 Pd :!pd <args>
-
-
-" map <Leader>r to run script
+" IPythonCell
 nnoremap <Leader>if :IPythonCellRun<CR>
-
-" map <Leader>R to run script and time the execution
 nnoremap <Leader>iF :IPythonCellRunTime<CR>
-
-" map <Leader>c tj execute the current cell
 nnoremap <Leader>ii :IPythonCellExecuteCell<CR>
-
-" map <Leader>C to execute the current cell and jump to the next cell
 nnoremap <Leader>ic :IPythonCellExecuteCellJump<CR>
-
-" map [c and ]c to jump to the previous and next cell header
 nnoremap [c :IPythonCellPrevCell<CR>
 nnoremap ]c :IPythonCellNextCell<CR>
 
-nmap <Leader>is <Plug>SlimeRegionSend<CR>
-vmap <Leader>is <Plug>SlimeRegionSend<CR>
-nmap <Leader>il <Plug>SlimeLineSend<CR>
-nmap <Leader>io <Plug>SlimeMotionSend<CR>
-vmap <Leader>id <Plug>IPythonShowDoc<CR>
+" Vim-slime
+nnoremap <Leader>is <Plug>SlimeRegionSend<CR>
+vnoremap <Leader>is <Plug>SlimeRegionSend<CR>
+nnoremap <Leader>il <Plug>SlimeLineSend<CR>
+nnoremap <Leader>io <Plug>SlimeMotionSend<CR>
+vnoremap <Leader>id <Plug>IPythonShowDoc<CR>
