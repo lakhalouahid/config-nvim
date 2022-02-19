@@ -1,5 +1,6 @@
 "### NOEVIM INIT CONFIGURATION FILE ###
 "## Global Settings ##
+let setup = get(g:, 'setup', 'default')
 
 " Leader
 let mapleader = " "  " Define the leader character
@@ -14,7 +15,7 @@ set title           " Title Setting
 set hidden          " Make a buffer becomes hidden when it is abandoned
 set scrolloff=0
 set signcolumn=no   " Left column for errors
-" set colorcolumn=80 " 80 red column
+set colorcolumn=0 " 80 red column
 set cmdheight=1     " Cmd Height
 set shortmess+=c    " Don't give ins-completion-menu messages
 set noshowmode
@@ -35,11 +36,11 @@ filetype indent on  " Enable loading the indent file for specific file type
 " Tabs and identations
 set expandtab     " Expand tabs to spaces
 set tabstop=2     " Tab settings
-set softtabstop=2 " Tab settings
 set shiftwidth=2  " Tab settings
 set smarttab      " Smarttab
 set smartindent   " Smart indent
 set autoindent    " Auto ident
+set relativenumber " Show relative line number
 
 " Spelling
 set spelllang=en    " Make english as the default language for spelling
@@ -50,15 +51,9 @@ set notermguicolors
 
 " Search
 set path=.** " Search from the current folder and down
-" Windows config
-"set number " Show line number
-"set splitbelow " Make window splits open below current window
-"set splitright " Make window splits open right current window
 set numberwidth=1
-set relativenumber " Show relative line number
-set number         " Show absolute number
+"set number         " Show absolute number
 set incsearch      " Show where the pattern, as it was typed so far, matches
-
 " Backups
 set history=700                         " Set the history to 700 deep
 set undolevels=700                      " No more then 700 undolevels
@@ -69,14 +64,14 @@ set undodir=$HOME/.local/share/nvim/undodir " Define the undodir
 
 " Extra stuff
 set clipboard=unnamed                     " Use the plus register as the clipboard register
-set runtimepath+=$HOME/.local/share/nvim/lua  " Runtime
+set rtp+=$HOME/.local/share/nvim/lua  " Runtime
 
 " Vim provider
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
-
+let g:python_recommended_style = 0
 
 
 " Plugings
@@ -84,10 +79,16 @@ source $HOME/.config/nvim/vim/plugs.vim
 source $HOME/.config/nvim/vim/mappings.vim
 source $HOME/.config/nvim/vim/configurations.vim
 
+
 " Colorscheme
+set termguicolors
 colorscheme gruvbox
+
 highlight extrawhitespace ctermbg=DarkMagenta guibg=blue
 
+
+if setup != 'minimal'
 lua << EOF
- require('init')
+  require('init')
 EOF
+endif

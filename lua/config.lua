@@ -1,6 +1,6 @@
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
-require("luasnip.loaders.from_snipmate").load({path = '/home/hamza/.local/share/nvim/vim-snippets'}) -- opts can be ommited
+require("luasnip.loaders.from_snipmate").load({path = '~/.local/share/nvim/vim-snippets'}) -- opts can be ommited
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -72,7 +72,9 @@ local on_attach = function(client, bufnr)
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gdd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gds', '<cmd>sp<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gdv', '<cmd>vsp<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<space>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -93,7 +95,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'bashls' , 'lua', 'vimls', 'pyright'}
+local servers = {'bashls' , 'lua', 'vimls', 'pyright', 'html', 'tsserver'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     init_options = {formatting = true},

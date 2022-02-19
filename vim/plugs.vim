@@ -1,35 +1,14 @@
-"" Plugins Configuration 
+" Plugins Configuration 
 
 call plug#begin('~/.local/share/nvim/plugged')
+let setup = get(g:, 'setup', 'minimal')
 
-" Custom Stuff
-Plug '~/.local/share/nvim/plugged/vim-basics'
-Plug '~/.local/share/nvim/plugged/vim-textobj-cell'
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-
-" For luasnip users.
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'honza/vim-snippets'
-
-" Replace With Register
-Plug 'vim-scripts/ReplaceWithRegister'
-
-" Telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'make' }
-
-" Awesome tpope Plugins
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
+" Text object
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'lakhalouahid/vim-textobj-custom'
 
 " Make comment insanely fast
 Plug 'chrisbra/vim-commentary'
@@ -37,52 +16,54 @@ Plug 'chrisbra/vim-commentary'
 " Make auto pairs
 Plug 'jiangmiao/auto-pairs'
 
-" Make wiki
-Plug 'vimwiki/vimwiki'
+" Replace With Register
+Plug 'vim-scripts/ReplaceWithRegister'
 
-" The best vim-airline
-" Plug 'vim-airline/vim-airline'
+"l Repeat
+Plug 'tpope/vim-repeat'
 
-" Titlecase
-Plug 'christoomey/vim-titlecase'
+" Surround
+Plug 'tpope/vim-surround'
 
 " Colorscheme gruvbox
 Plug 'morhetz/gruvbox'
 
+" Maximize and Unmaximize
+Plug 'KabbAmine/vZoom.vim', {'on': ['<Plug>(vzoom)', 'VZoomAutoToggle']}
 
-" Wordnet
-Plug 'fncll/wordnet.vim'
+if setup == 'default'
+  " nvim-lspconfig
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/nvim-cmp'
 
-" Sort paragraph
-Plug 'christoomey/vim-sort-motion'
+  " For luasnip users.
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'honza/vim-snippets'
 
-" Text object
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-user'
+  " Awesome tpope Plugins
+  Plug 'tpope/vim-fugitive'
 
-" Markdown-runner
-Plug 'dbridges/vim-markdown-runner'
+  " textobj function
+  Plug 'kana/vim-textobj-function'
 
-" Jupyter
-Plug 'goerz/jupytext.vim'
-Plug 'jpalardy/vim-slime', { 'for': 'python' }
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+  " Custom Stuff
+  Plug 'junegunn/vim-easy-align'
 
-" Markdown
-Plug 'plasticboy/vim-markdown'
+  " Sort paragraph
+  Plug 'christoomey/vim-sort-motion'
 
-" Lua
-Plug 'wsdjeg/vim-lua'
+  " Goyo
+  Plug 'junegunn/goyo.vim'
 
-" nvim-lspconfig
-Plug 'neovim/nvim-lspconfig'
-" Notes
+  " Wordnet
+  Plug 'fncll/wordnet.vim'
 
-" Latex
-Plug 'lervag/vimtex'
+  " Fuzzy finder
+  Plug 'junegunn/fzf'
 
 
+endif
 call plug#end()
