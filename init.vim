@@ -7,53 +7,62 @@ let mapleader = " "  " Define the leader character
 let maplocalleader = " "  " Define the leader character
 
 " Behavior
-set ruler           " Show the line and columninit.vim number
-set nowrap          " Don't Wrap the lineBs
-set encoding=utf-8  " Encoding UTF-8
-set nocompatible    " No compatibel vith vi
-set title           " Title Setting
-set hidden          " Make a buffer becomes hidden when it is abandoned
+"
+set ruler          " Show the line and columninit.vim number
+set nowrap         " Don't Wrap the lineBs
+set encoding=utf-8 " Encoding UTF-8
+set nocompatible   " No compat vith vi
+set title          " Title Setting
+set hidden         " Make a buffer becomes hidden when it is abandoned
 set scrolloff=0
-set signcolumn=no   " Left column for errors
-set colorcolumn=0 " 80 red column
-set cmdheight=1     " Cmd Height
-set shortmess+=c    " Don't give ins-completion-menu messages
+set signcolumn=no  " Left column for errors
+set colorcolumn=0  " 80 red column
+set cmdheight=1    " Cmd Height
+set shortmess+=c   " Don't give ins-completion-menu messages
 set noshowmode
-set nohlsearch      " No hlsearch
+set nohlsearch     " No hlsearch
 set completeopt=menuone,noinsert,noselect
-set exrc            " Read local vimrc config file
+set exrc           " Read local vimrc config file
 set nowrapscan
-"set nosecure
-"set omnifunc=syntaxcomplete#Complete
 set updatetime=200
-set belloff=all     " Set off the bell sound
-syntax enable       " Enable synthax highlighting
-filetype on         " Enable filetype detection
-filetype plugin on  " Enable loading the plugin files for specific file type
-filetype indent on  " Enable loading the indent file for specific file type
+set belloff=all    " Set off the bell sound
+syntax enable      " Enable synthax highlighting
+filetype on        " Enable filetype detection
+filetype plugin on " Enable loading the plugin files for specific file type
+filetype indent on " Enable loading the indent file for specific file type
+
 
 
 " Tabs and identations
-set expandtab     " Expand tabs to spaces
-set tabstop=2     " Tab settings
-set shiftwidth=2  " Tab settings
-set smarttab      " Smarttab
-set smartindent   " Smart indent
-set autoindent    " Auto ident
+set expandtab      " Expand tabs to spaces
+set tabstop=2      " Tab settings
+set shiftwidth=2   " Tab settings
+set smarttab       " Smarttab
+set smartindent    " Smart indent
+set autoindent     " Auto ident
 set relativenumber " Show relative line number
 
 " Spelling
-set spelllang=en    " Make english as the default language for spelling
+set spelllang=en_us " Make english as the default language for spelling
 set background=dark " Use my beautiful drak background theme
 
 " Themes
-set notermguicolors
+set termguicolors
 
 " Search
-set path=.** " Search from the current folder and down
+set path=.**       " Search from the current folder and down
+set wildmode=longest:list
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/__pycache__/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/.git/*
 set numberwidth=1
 "set number         " Show absolute number
 set incsearch      " Show where the pattern, as it was typed so far, matches
+set hlsearch
 " Backups
 set history=700                         " Set the history to 700 deep
 set undolevels=700                      " No more then 700 undolevels
@@ -81,14 +90,14 @@ source $HOME/.config/nvim/vim/configurations.vim
 
 
 " Colorscheme
-set termguicolors
 colorscheme gruvbox
 
-highlight extrawhitespace ctermbg=DarkMagenta guibg=blue
+augroup ExtraWhiteSpace
+  autocmd!
+  autocmd! InsertLeave * match extrawhitespace /\s\+$/
+augroup END
+highlight extrawhitespace ctermbg=DarkMagenta guibg=DarkMagenta
 
-
-if setup != 'minimal'
 lua << EOF
   require('init')
 EOF
-endif

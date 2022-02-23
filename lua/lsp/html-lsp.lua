@@ -8,6 +8,7 @@ if not configs.html then
     default_config = {
       cmd = { "vscode-html-language-server", "--stdio" },
       filetypes = { "html" },
+      autostart = false,
       init_options = {
         configurationSection = { "html", "css", "javascript" },
         embeddedLanguages = {

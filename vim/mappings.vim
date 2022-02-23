@@ -4,17 +4,14 @@ imap <F8> <RIGHT>
 
 " Tabs movements
 nmap tn :tabnew<cr>
-nmap tt :tab split<cr>
-nmap tq :q<cr>
-nmap tc :tabclose<cr>
 nmap tj :tabn<cr>
 nmap tl :+tabm<cr>
 nmap tk :tabp<cr>
 nmap th :-tabm<cr>
 
 " Visual shifting
-vnoremap < <gv
-vnoremap > >gv
+vmap < <gv
+vmap > >gv
 
 " Clipboard
 au! TextYankPost * call setreg("+", getreg('"'))
@@ -29,16 +26,16 @@ nmap <Leader>fi :set foldmethod=indent<CR>
 
 " Terminal
 nmap <C-w>N :vnew<Cr>
-nmap <leader>s :sp term://
+nmap <leader>S :sp term://
 nmap <leader>v :vsp term://
-au! TermOpen * setlocal norelativenumber nonumber
-au! TermOpen * redraw!
 
 
 " Vim Fugitive https://github.com/tpope/vim-fugitive
 nmap <leader>gs :G<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
+au! TermOpen * redraw!
+au! TermOpen * setlocal norelativenumber nonumber
 
 " Vim easy-align https://github.com/junegunn/vim-easy-align
 "! note vip<C-X> fot regex
@@ -70,7 +67,6 @@ nmap <leader>tm :set filetype=markdowm<cr>
 nmap <leader>tc :set filetype=c<cr>
 
 " White spaces
-au! InsertLeave * match extrawhitespace /\s\+$/
 
 " Command-window
 cmap <A-s> <c-right>
@@ -90,14 +86,33 @@ nmap <Leader>ic :IPythonCellExecuteCellJump<CR>
 " map [c and ]c to jump to the previous and next cell header
 nmap [c :IPythonCellPrevCell<CR>
 nmap ]c :IPythonCellNextCell<CR>
-nmap [g :cnext<CR>
-nmap ]g :cprev<CR>
 
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+au! FileType html,css EmmetInstall
+let g:user_emmet_leader_key=','
 
 nmap <C-W>o <nop>
 nmap <C-W>o <Plug>(vzoom)
 nmap <M-a> <C-W>
 tmap <M-s> <C-\><C-n>
+
+" yank
+au! TextYankPost * lua vim.highlight.on_yank {on_visual=false}
+
+
+" Quickfix
+nmap ]q :cnext<CR>
+nmap [q :cprev<CR>
+nmap [Q :cfirst<CR>
+nmap ]G :clast<CR>
+
+nmap ]l :lnext<CR>
+nmap [l :lprev<CR>
+nmap [L :lfirst<CR>
+nmap ]L :llast<CR>
+
+nmap ]a :next<CR>
+nmap [a :prev<CR>
+nmap [A :first<CR>
+nmap ]A :last<CR>

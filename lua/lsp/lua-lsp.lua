@@ -7,6 +7,7 @@ if not configs.lua then
   configs.lua = {
     default_config = {
       cmd = {"/usr/bin/lua-language-server"},
+      autostart = false,
       filetypes = { "lua" },
       log_level = 2,
       settings = {
@@ -35,4 +36,3 @@ if not configs.lua then
     },
   }
 end
-lspconfig.lua.setup({init_options = {formatting = true}})

@@ -1,13 +1,14 @@
--- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
-require("luasnip.loaders.from_snipmate").load({path = '~/.local/share/nvim/vim-snippets'}) -- opts can be ommited
+require("luasnip.loaders.from_snipmate").load({path = '/home/hamza/.local/share/nvim/vim-snippets'}) -- opts can be ommited
 
 -- luasnip setup
 local luasnip = require 'luasnip'
 
+
+
 -- nvim-cmp setup
-local cmp = require 'cmp'
-cmp.setup {
+local cmp = require('cmp')
+cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -48,10 +49,15 @@ cmp.setup {
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'path' },
   },
-}
+});
 
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+
+-- capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 
 local nvim_lsp = require('lspconfig')
@@ -61,8 +67,8 @@ local nvim_lsp = require('lspconfig')
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   client.resolved_capabilities.document_formatting = true
-  -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -95,9 +101,10 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'bashls' , 'lua', 'vimls', 'pyright', 'html', 'tsserver'}
+local servers = {'bashls' , 'lua', 'vimls', 'pyright', 'html', 'tsserver', 'gopls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
+    autostart = false,
     init_options = {formatting = true},
     capabilities = capabilities,
     on_attach = on_attach,

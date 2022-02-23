@@ -14,8 +14,8 @@ Plug 'lakhalouahid/vim-textobj-custom'
 Plug 'chrisbra/vim-commentary'
 
 " Make auto pairs
-Plug 'jiangmiao/auto-pairs'
-
+"Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 " Replace With Register
 Plug 'vim-scripts/ReplaceWithRegister'
 
@@ -31,9 +31,15 @@ Plug 'morhetz/gruvbox'
 " Maximize and Unmaximize
 Plug 'KabbAmine/vZoom.vim', {'on': ['<Plug>(vzoom)', 'VZoomAutoToggle']}
 
+" Fuzzy finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 if setup == 'default'
   " nvim-lspconfig
+  Plug 'milisims/nvim-luaref'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/lsp-status.nvim'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/nvim-cmp'
@@ -49,6 +55,7 @@ if setup == 'default'
   " textobj function
   Plug 'kana/vim-textobj-function'
 
+  Plug 'mattn/emmet-vim', {'for': 'html,css'}
   " Custom Stuff
   Plug 'junegunn/vim-easy-align'
 
@@ -61,8 +68,6 @@ if setup == 'default'
   " Wordnet
   Plug 'fncll/wordnet.vim'
 
-  " Fuzzy finder
-  Plug 'junegunn/fzf'
 
 
 endif
