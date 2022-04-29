@@ -16,7 +16,7 @@ set title          " Title Setting
 set hidden         " Make a buffer becomes hidden when it is abandoned
 set scrolloff=0
 set signcolumn=no  " Left column for errors
-set colorcolumn=0  " 80 red column
+set colorcolumn=80  " 80 red column
 set cmdheight=1    " Cmd Height
 set shortmess+=c   " Don't give ins-completion-menu messages
 set noshowmode
@@ -44,7 +44,6 @@ set relativenumber " Show relative line number
 
 " Spelling
 set spelllang=en_us " Make english as the default language for spelling
-set background=dark " Use my beautiful drak background theme
 
 " Themes
 set termguicolors
@@ -62,7 +61,6 @@ set wildignore+=**/.git/*
 set numberwidth=1
 "set number         " Show absolute number
 set incsearch      " Show where the pattern, as it was typed so far, matches
-set hlsearch
 " Backups
 set history=700                         " Set the history to 700 deep
 set undolevels=700                      " No more then 700 undolevels
@@ -87,7 +85,6 @@ let g:python_recommended_style = 0
 source $HOME/.config/nvim/vim/plugs.vim
 source $HOME/.config/nvim/vim/mappings.vim
 source $HOME/.config/nvim/vim/configurations.vim
-
 
 " Colorscheme
 colorscheme gruvbox

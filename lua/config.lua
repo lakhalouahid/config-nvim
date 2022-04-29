@@ -3,6 +3,7 @@ require("luasnip.loaders.from_snipmate").load({path = '/home/hamza/.local/share/
 
 -- luasnip setup
 local luasnip = require 'luasnip'
+local nvim_lsp = require('lspconfig')
 
 
 
@@ -46,6 +47,7 @@ cmp.setup({
   },
   sources =  {
     { name = 'nvim_lsp' },
+    { name = 'emoji' },
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'path' },
   },
@@ -60,7 +62,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 
-local nvim_lsp = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 -- Use an on_attach function to only map the following keys
@@ -101,7 +102,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'bashls' , 'lua', 'vimls', 'pyright', 'html', 'tsserver', 'gopls'}
+local servers = {'bashls' , 'lua', 'vimls', 'pyright', 'html', 'tsserver', 'gopls', 'ccls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     autostart = false,

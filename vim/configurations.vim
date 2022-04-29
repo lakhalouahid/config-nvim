@@ -2,13 +2,15 @@
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " Vim-wiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_markdown_link_ext = 1
-let g:vimwiki_filetypes = ['markdown']
+let g:wiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:wiki_markdown_link_ext = 1
+let g:wiki_filetypes = ['md']
+let g:wiki_link_extension = '.md'
+let g:wiki_root = '~/.wiki'
+let g:wiki_link_target_type = 'md'
 
 " Vim-markdown
-let g:vim_markdown_folding_disabled = 1
+let g:markdown_markdown_folding_disabled = 1
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-e>"
@@ -36,3 +38,6 @@ let g:slime_default_config = {
             \ 'socket_name': get(split($TMUX, ','), 0),
             \ 'target_pane': '{top-right}' }
 let g:slime_dont_ask_default = 1
+
+
+" vim wiki

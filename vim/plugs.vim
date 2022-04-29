@@ -11,7 +11,9 @@ Plug 'kana/vim-textobj-entire'
 Plug 'lakhalouahid/vim-textobj-custom'
 
 " Make comment insanely fast
-Plug 'chrisbra/vim-commentary'
+" Plug 'chrisbra/vim-commentary'
+Plug 'b3nj5m1n/kommentary'
+
 
 " Make auto pairs
 "Plug 'jiangmiao/auto-pairs'
@@ -28,6 +30,7 @@ Plug 'tpope/vim-surround'
 " Colorscheme gruvbox
 Plug 'morhetz/gruvbox'
 
+
 " Maximize and Unmaximize
 Plug 'KabbAmine/vZoom.vim', {'on': ['<Plug>(vzoom)', 'VZoomAutoToggle']}
 
@@ -35,13 +38,26 @@ Plug 'KabbAmine/vZoom.vim', {'on': ['<Plug>(vzoom)', 'VZoomAutoToggle']}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+" Vim-wiki
+Plug 'lervag/wiki.vim'
+
+" ipython
+Plug 'jpalardy/vim-slime', { 'for': 'python' }
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+
+
 if setup == 'default'
   " nvim-lspconfig
+  "
+  Plug 'dmitmel/cmp-digraphs'
+  Plug 'nvim-lua/lsp-status.nvim'
   Plug 'milisims/nvim-luaref'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/lsp-status.nvim'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-emoji'
   Plug 'hrsh7th/nvim-cmp'
 
   " For luasnip users.
@@ -51,6 +67,7 @@ if setup == 'default'
 
   " Awesome tpope Plugins
   Plug 'tpope/vim-fugitive'
+  " Plug 'vim-airline/vim-airline'
 
   " textobj function
   Plug 'kana/vim-textobj-function'
@@ -68,7 +85,8 @@ if setup == 'default'
   " Wordnet
   Plug 'fncll/wordnet.vim'
 
-
+  " markdown previewer
+  Plug 'iamcco/markdown-preview.nvim'
 
 endif
 call plug#end()
